@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EasySwitcher">
+        <attr name="sbOpenBgColor" format="color" /><!--打开的时候的内框颜色-->
+        <attr name="sbCloseBgColor" format="color" /><!--关闭的时候的内框颜色-->
+        <attr name="sbAnimSpeed" format="integer" /><!--动画执行的速度-->
+        <attr name="sbSwitchStatus" format="integer">
+            <enum name="open" value="1" />
+            <enum name="close" value="0" />
+        </attr>
+        <attr name="sbSwitcherColor" format="color"/>
+    </declare-styleable>
+</resources>
