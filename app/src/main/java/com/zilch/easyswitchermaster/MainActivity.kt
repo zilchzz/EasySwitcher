@@ -1,12 +1,12 @@
 package com.zilch.easyswitchermaster
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.Toast
 import com.zilch.easyswitcherlib.widgets.EasySwitcher
 
-class MainActivity : AppCompatActivity(), EasySwitcher.SwitchStateChangedListener {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,15 +15,16 @@ class MainActivity : AppCompatActivity(), EasySwitcher.SwitchStateChangedListene
     }
 
     private fun initView() {
-        val easySwitcher = findViewById<EasySwitcher>(R.id.mEasySwitcher)
         val mGetStateBtn = findViewById<Button>(R.id.mGetStateBtn)
+        val easySwitcher = findViewById<EasySwitcher>(R.id.mEasySwitcher)
+        easySwitcher.setOnStateChangedListener(object : EasySwitcher.SwitchStateChangedListener {
+            override fun onStateChanged(isOpen: Boolean) {
+                Toast.makeText(this@MainActivity, isOpen.toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
         mGetStateBtn.setOnClickListener {
             Toast.makeText(this, easySwitcher.isOpened().toString(), Toast.LENGTH_SHORT).show()
         }
-        easySwitcher.setOnStateChangedListener(this)
-    }
 
-    override fun onStateChanged(isOpen: Boolean) {
-        Toast.makeText(this, isOpen.toString(), Toast.LENGTH_SHORT).show()
     }
 }

@@ -11,7 +11,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:sbAnimTime="300"
+        app:sbCloseBgColor="#d9d9d9"
+        app:sbOpenBgColor="#008cff"
+        app:sbSwitchStatus="close"
+        app:sbSwitcherColor="@android:color/white" />
 
     <Button
         android:id="@+id/mGetStateBtn"

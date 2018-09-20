@@ -32,7 +32,7 @@ class EasySwitcher @JvmOverloads constructor(
 
     init {
         val typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.EasySwitcher)
-        mAnimTime = typedArray.getInt(R.styleable.EasySwitcher_sbAnimSpeed, 500)
+        mAnimTime = typedArray.getInt(R.styleable.EasySwitcher_sbAnimTime, 500)
         mOpenBgColor = typedArray.getColor(R.styleable.EasySwitcher_sbOpenBgColor, Color.parseColor("#008cff"))
         mCloseBgColor = typedArray.getColor(R.styleable.EasySwitcher_sbCloseBgColor, Color.parseColor("#d9d9d9"))
         mSwitcherColor = typedArray.getColor(R.styleable.EasySwitcher_sbSwitcherColor, Color.WHITE)
