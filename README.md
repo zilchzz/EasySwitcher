@@ -4,11 +4,11 @@
 
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
 
-[![](https://jitpack.io/v/xyz5359502/EasySwitcher.svg)](https://jitpack.io/#xyz5359502/EasySwitcher)
+[![](https://jitpack.io/v/zilchzz/EasySwitcher.svg)](https://jitpack.io/#zilchzz/EasySwitcher)
 
 Switcher library for Android platform ,write in Kotlin. It's easy to use, with background gradient, much like the switcher on iOS, contains only one class.
 
-![image](https://github.com/xyz5359502/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/git_effect.gif)
+![image](https://github.com/zilchzz/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/git_effect.gif)
 
 ## Requirements
 
@@ -31,7 +31,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.xyz5359502:EasySwitcher:0.1.4'
+    implementation 'com.github.zilchzz:EasySwitcher:0.1.4'
 }
 ```
 
@@ -40,7 +40,7 @@ dependencies {
 Add `EasySwitcher` to your xml layout
 
 ```xml
-<com.zilch.library.widgets.EasySwitcher
+<com.zilchzz.library.widgets.EasySwitcher
         android:id="@+id/mEasySwitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@ fun setOnStateChangedListener(stateChangedLis: SwitchStateChangedListener) {
 ```
 MIT License
 
-Copyright (c) 2018 xyz5359502
+Copyright (c) 2018 zilchzz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
