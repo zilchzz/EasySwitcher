@@ -9,7 +9,7 @@
 Switcher library for Android platform ,write in Kotlin. It's easy to use, with background gradient, much like the switcher on iOS, 
 contains only one class.
 
-![image](https://github.com/xyz5359502/EasySwitcherMaster/blob/master/app/src/main/res/mipmap-xxhdpi/git_effect.gif)
+![image](https://github.com/xyz5359502/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/git_effect.gif)
 
 ## Requirements
 
