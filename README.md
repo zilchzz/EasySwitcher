@@ -4,10 +4,9 @@
 
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
 
-[![](https://jitpack.io/v/xyz5359502/EasySwitcherMaster.svg)](https://jitpack.io/#xyz5359502/EasySwitcherMaster)
+[![](https://jitpack.io/v/xyz5359502/EasySwitcher.svg)](https://jitpack.io/#xyz5359502/EasySwitcher)
 
-Switcher library for Android platform ,write in Kotlin. It's easy to use, with background gradient, much like the switcher on iOS, 
-contains only one class.
+Switcher library for Android platform ,write in Kotlin. It's easy to use, with background gradient, much like the switcher on iOS, contains only one class.
 
 ![image](https://github.com/xyz5359502/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/git_effect.gif)
 
@@ -32,7 +31,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.xyz5359502:EasySwitcherMaster:0.1.0'
+    implementation 'com.github.xyz5359502:EasySwitcher:0.1.4'
 }
 ```
 
@@ -41,11 +40,11 @@ dependencies {
 Add `EasySwitcher` to your xml layout
 
 ```xml
-<com.zilch.easyswitcherlib.widgets.EasySwitcher
+<com.zilch.library.widgets.EasySwitcher
         android:id="@+id/mEasySwitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:sbAnimSpeed="300"
+        app:sbAnimTime="300"
         app:sbCloseBgColor="#d9d9d9"
         app:sbOpenBgColor="#008cff"
         app:sbSwitchStatus="close"
@@ -58,7 +57,7 @@ Add `EasySwitcher` to your xml layout
 | :-------------: | :-----: | :----------------------------------: |
 |  sbOpenBgColor  |  color  |     round rect color when opend      |
 | sbCloseBgColor  |  color  |     round rect color when closed     |
-|   sbAnimSpeed   | integer |          anim running time           |
+|   sbAnimTime    | integer |          anim running time           |
 | sbSwitchStatus  |  enum   | switcher default state,open or close |
 | sbSwitcherColor |  color  |        the color of switcher         |
 
