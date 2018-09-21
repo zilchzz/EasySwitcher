@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.zilch.library.widgets.EasySwitcher
+    <com.zilchzz.library.widgets.EasySwitcher
         android:id="@+id/mEasySwitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,10 +16,11 @@
         app:sbSwitcherColor="@android:color/white" />
 
     <Button
-        android:layout_below="@id/mEasySwitcher"
         android:id="@+id/mGetStateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/mEasySwitcher"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="get_state" />
 </RelativeLayout>
