@@ -8,6 +8,9 @@ import android.util.TypedValue
 import android.view.View
 import com.zilch.library.R
 
+/**
+ * @author zhongzhanzhong 2018-09-20 18:00
+ */
 class EasySwitcher @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
