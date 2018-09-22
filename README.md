@@ -1,13 +1,15 @@
-# EasySwitcher
-
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)]()
-
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
-
 [![](https://jitpack.io/v/zilchzz/EasySwitcher.svg)](https://jitpack.io/#zilchzz/EasySwitcher)
 
+# EasySwitcher
 Switcher library for Android platform ,write in Kotlin. It's easy to use, with background gradient, much like the switcher on iOS, contains only one class.
 
+# DOCUMENT
+- [ENGLISH](https://github.com/zilchzz/EasySwitcher/blob/master/README.md) 
+- [中文](https://github.com/zilchzz/EasySwitcher/blob/master/README_CH.md)
+
+# UI
 ![image](https://github.com/zilchzz/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/git_effect.gif)
 
 ## Requirements
