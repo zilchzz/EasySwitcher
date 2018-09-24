@@ -161,6 +161,14 @@ class EasySwitcher @JvmOverloads constructor(
         mSwitcherOpened = !mSwitcherOpened
     }
 
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        if (mTotalAnimator?.isRunning == true) {
+            mTotalAnimator?.cancel()
+            mTotalAnimator?.removeAllListeners()
+        }
+    }
+
     /**
      * get the current state of switcher
      * @return whether this switcher is open or not
