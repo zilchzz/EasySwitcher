@@ -10,7 +10,7 @@
 - [中文](https://github.com/zilchzz/EasySwitcher/blob/master/README_CH.md)
 
 # 效果
-![image](https://github.com/zilchzz/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/git_effect.gif)
+![image](https://github.com/zilchzz/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/switcher.gif)
 
 ## 要求
 
@@ -33,7 +33,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.zilchzz:EasySwitcher:0.1.4'
+    implementation 'com.github.zilchzz:EasySwitcher:0.1.5'
 }
 ```
 
@@ -52,6 +52,7 @@ dependencies {
         app:sbSwitchStatus="close"
         app:sbSwitcherColor="@android:color/white" />
 ```
+>**如果你希望统一的将默认属性更改掉，你可以在 Application 的 onCreate 方法中调用 EasySwitcher.setDefault...() 系列方法。当然，在 XML 中设定的属性总是优先的。**
 
 ## 可用属性
 
@@ -96,6 +97,37 @@ fun isOpened() = mSwitcherOpened
  */
 fun setOnStateChangedListener(stateChangedLis: SwitchStateChangedListener) {
 	this.mStateChangedLis = stateChangedLis
+}
+
+/**
+ * change default animation time
+ */
+fun setDefaultAnimTime(animTime: Int) {
+	if (animTime < 0)
+                throw IllegalArgumentException("Anim time can't be less than zero")
+            mDefaultAnimTime = animTime
+        }
+}
+
+/**
+ * change default toggle color
+ */
+fun setDefaultSwitcherColor(color: String) {
+	mDefaultSwitcherToggleColor = color
+}
+
+/**
+ * change default close bg color
+ */
+fun setDefaultCloseBgColor(color: String) {
+	mDefaultCloseColor = color
+}
+
+/**
+ * change default open bg color
+ */
+fun setDefaultOpenBgColor(color: String) {
+	mDefaultOpenColor = color
 }
 ```
 
