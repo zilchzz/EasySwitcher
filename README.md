@@ -63,8 +63,8 @@ Add `EasySwitcher` to your xml layout
 |  sbOpenBgColor  |  color  |     round rect color when opend      |
 | sbCloseBgColor  |  color  |     round rect color when closed     |
 |   sbAnimTime    | integer |          anim running time           |
-| sbSwitchStatus  |  enum   | switcher default state,open or close |
-| sbSwitcherColor |  color  |        the color of switcher         |
+| sbDefaultOpened  |  enum   | toogle default state,true or false |
+| sbToggleColor |  color  |        the color of switcher         |
 
 ## Status changed callback
 
