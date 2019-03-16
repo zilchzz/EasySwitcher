@@ -49,8 +49,8 @@ Add `EasySwitcher` to your xml layout
         app:sbAnimTime="300"
         app:sbCloseBgColor="#d9d9d9"
         app:sbOpenBgColor="#008cff"
-        app:sbSwitchStatus="close"
-        app:sbSwitcherColor="@android:color/white" />
+        app:sbDefaultOpened="false"
+        app:sbToggleColor="@android:color/white"  />
 ```
 
 >**If you want to change the default background color or animation time , you can change it in Application with EasySwitcher.setDefault...(). And default attr will be ignored , if you set the attr in xml.**
