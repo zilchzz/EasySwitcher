@@ -49,8 +49,8 @@ dependencies {
         app:sbAnimTime="300"
         app:sbCloseBgColor="#d9d9d9"
         app:sbOpenBgColor="#008cff"
-        app:sbSwitchStatus="close"
-        app:sbSwitcherColor="@android:color/white" />
+        app:sbDefaultOpened="false"
+        app:sbToggleColor="@android:color/white" />
 ```
 >**如果你希望统一的将默认属性更改掉，你可以在 Application 的 onCreate 方法中调用 EasySwitcher.setDefault...() 系列方法。当然，在 XML 中设定的属性总是优先的。**
 
