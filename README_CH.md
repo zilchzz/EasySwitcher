@@ -1,6 +1,5 @@
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)]()
-[![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
-[![](https://jitpack.io/v/zilchzz/EasySwitcher.svg)](https://jitpack.io/#zilchzz/EasySwitcher)
+[![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)[![](https://www.jitpack.io/v/zilchzz/EasySwitcher.svg)](https://www.jitpack.io/#zilchzz/EasySwitcher)
 
 # EasySwitcher
 一个模仿 iOS 系统中的开关控件，在动画中带有背景颜色渐变。使用 Kotlin 语言编写，轻量易集成，只含有一个类及一个 attrs.xml 文件。
