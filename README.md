@@ -63,7 +63,7 @@ Add `EasySwitcher` to your xml layout
 |  sbOpenBgColor  |  color  |     round rect color when opend      |
 | sbCloseBgColor  |  color  |     round rect color when closed     |
 |   sbAnimTime    | integer |          anim running time           |
-| sbDefaultOpened  |  enum   | toogle default state,true or false |
+| sbDefaultOpened  |  boolean   | toogle default state,true or false |
 | sbToggleColor |  color  |        the color of switcher         |
 
 ## Status changed callback
@@ -140,7 +140,7 @@ fun setDefaultOpenBgColor(color: String) {
 ```
 MIT License
 
-Copyright (c) 2018 zilchzz
+Copyright (c) 2019 zilchzz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
