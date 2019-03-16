@@ -1,6 +1,6 @@
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)]()
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
-[![](https://jitpack.io/v/zilchzz/EasySwitcher.svg)](https://jitpack.io/#zilchzz/EasySwitcher)
+[![](https://www.jitpack.io/v/zilchzz/EasySwitcher.svg)](https://www.jitpack.io/#zilchzz/EasySwitcher)
 
 # EasySwitcher
 Switcher library for Android platform ,write in Kotlin. It's easy to use, with background gradient, much like the switcher on iOS, contains only one class.
