@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import com.zilchzz.library.R
+import java.lang.IllegalArgumentException
 
 /**
  * @author zilchzz 2018-09-20 18:00
@@ -14,6 +15,43 @@ import com.zilchzz.library.R
 class EasySwitcher @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
+    companion object {
+        private var mDefaultCloseColor: String = "#FFD9D9D9"
+        private var mDefaultOpenColor = "#FF008CFF"
+        private var mDefaultSwitcherToggleColor = "#FFFFFFFF"
+        private var mDefaultAnimTime = 300
+
+        /**
+         * change default animation time
+         */
+        fun setDefaultAnimTime(animTime: Int) {
+            if (animTime < 0)
+                throw IllegalArgumentException("Anim time can't be less than zero")
+            mDefaultAnimTime = animTime
+        }
+
+        /**
+         * change default toggle color
+         */
+        fun setDefaultSwitcherColor(color: String) {
+            mDefaultSwitcherToggleColor = color
+        }
+
+        /**
+         * change default close bg color
+         */
+        fun setDefaultCloseBgColor(color: String) {
+            mDefaultCloseColor = color
+        }
+
+        /**
+         * change default open bg color
+         */
+        fun setDefaultOpenBgColor(color: String) {
+            mDefaultOpenColor = color
+        }
+    }
+
     private var mDefaultWidth: Float
     private var mDefaultHeight: Float
     private var mAnimTime: Int
@@ -21,7 +59,7 @@ class EasySwitcher @JvmOverloads constructor(
     private var mOpenBgColor: Int
     private var mSwitcherOpened: Boolean
     private var mCurrBgColor: Int
-    private var mSwitcherColor: Int //switcher circle color
+    private var mSwitcherToggleColor: Int //switcher circle color
     private var mPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var mSwitcherRadius = 0 //switcher circlr radius
     private var mSwitchPadding = 0 //the distance between the switcher and edge of round rect
@@ -35,11 +73,11 @@ class EasySwitcher @JvmOverloads constructor(
 
     init {
         val typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.EasySwitcher)
-        mAnimTime = typedArray.getInt(R.styleable.EasySwitcher_sbAnimTime, 500)
-        mOpenBgColor = typedArray.getColor(R.styleable.EasySwitcher_sbOpenBgColor, Color.parseColor("#008cff"))
-        mCloseBgColor = typedArray.getColor(R.styleable.EasySwitcher_sbCloseBgColor, Color.parseColor("#d9d9d9"))
-        mSwitcherColor = typedArray.getColor(R.styleable.EasySwitcher_sbSwitcherColor, Color.WHITE)
-        mSwitcherOpened = typedArray.getString(R.styleable.EasySwitcher_sbSwitchStatus)?.toInt() == 1
+        mAnimTime = typedArray.getInt(R.styleable.EasySwitcher_sbAnimTime, mDefaultAnimTime)
+        mOpenBgColor = typedArray.getColor(R.styleable.EasySwitcher_sbOpenBgColor, Color.parseColor(mDefaultOpenColor))
+        mCloseBgColor = typedArray.getColor(R.styleable.EasySwitcher_sbCloseBgColor, Color.parseColor(mDefaultCloseColor))
+        mSwitcherToggleColor = typedArray.getColor(R.styleable.EasySwitcher_sbToggleColor, Color.parseColor(mDefaultSwitcherToggleColor))
+        mSwitcherOpened = typedArray.getBoolean(R.styleable.EasySwitcher_sbDefaultOpened, false)
         mCurrBgColor = if (mSwitcherOpened) mOpenBgColor else mCloseBgColor
         typedArray.recycle()
 
@@ -108,26 +146,67 @@ class EasySwitcher @JvmOverloads constructor(
         mPaint.color = mCurrBgColor
         canvas.drawRoundRect(mBackGroundRectF, measuredHeight.toFloat() / 2, measuredHeight.toFloat() / 2, mPaint)
         //draw switcher
-        mPaint.color = mSwitcherColor
+        mPaint.color = mSwitcherToggleColor
         canvas.drawCircle(mSwitcherCenterPoint.x.toFloat(),
                 mSwitcherCenterPoint.y.toFloat(),
                 mSwitcherRadius.toFloat(), mPaint)
     }
 
-    fun setBgColor(color: Int) {
+    fun setSwitcherOpenColor(openColor: String) {
+        val mTempOpenColor = Color.parseColor(openColor)
+        if (mTempOpenColor != mOpenBgColor) {
+            mOpenBgColor = mTempOpenColor
+            if (mSwitcherOpened) {
+                mCurrBgColor = mOpenBgColor
+                invalidate()
+            }
+        }
+    }
+
+    fun setSwitcherCloseColor(closeColor: String) {
+        val mTempCloseColor = Color.parseColor(closeColor)
+        if (mTempCloseColor != mCloseBgColor) {
+            mCloseBgColor = mTempCloseColor
+            if (!mSwitcherOpened) {
+                mCurrBgColor = mCloseBgColor
+                invalidate()
+            }
+        }
+    }
+
+    fun openSwitcher() {
+        if (mSwitcherOpened)
+            return
+        mSwitcherOpened = true
+        mCurrBgColor = mOpenBgColor
+        initialize()
+        invalidate()
+    }
+
+    fun closeSwitcher() {
+        if (!mSwitcherOpened)
+            return
+        mSwitcherOpened = false
+        mCurrBgColor = mCloseBgColor
+        initialize()
+        invalidate()
+    }
+
+    private fun setBgColor(color: Int) {
         mCurrBgColor = color
         invalidate()
     }
 
-    fun getBgColor(): Int {
+    private fun getBgColor(): Int {
         return mCurrBgColor
     }
 
-    fun setAnimXGap(xGap: Int) {
+
+    private fun setAnimXGap(xGap: Int) {
         mSwitcherCenterPoint.x = mSwitcherRadius + mSwitchPadding + xGap
     }
 
-    fun getAnimXGap(): Int {
+    private fun getAnimXGap(): Int {
         return mSwitcherCenterPoint.x - mSwitchPadding - mSwitcherRadius
     }
 

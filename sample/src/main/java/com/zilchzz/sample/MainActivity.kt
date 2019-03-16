@@ -16,7 +16,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         val mGetStateBtn = findViewById<Button>(R.id.mGetStateBtn)
+        val mTrunOnSwitcherBtn = findViewById<Button>(R.id.mTrunOnSwitcherBtn)
+        val mTrunOffSwitcherBtn = findViewById<Button>(R.id.mTrunOffSwitcherBtn)
+
+        val mChangeCloseColorBtn = findViewById<Button>(R.id.mChangeCloseColorBtn)
+        val mChangeOpenColorBtn = findViewById<Button>(R.id.mChangeOpenColorBtn)
+
+        val mResetOpenColorBtn = findViewById<Button>(R.id.mResetOpenColorBtn)
+        val mResetCloseColorBtn = findViewById<Button>(R.id.mResetCloseColorBtn)
+
         val easySwitcher = findViewById<EasySwitcher>(R.id.mEasySwitcher)
+
         easySwitcher.setOnStateChangedListener(object : EasySwitcher.SwitchStateChangedListener {
             override fun onStateChanged(isOpen: Boolean) {
                 Toast.makeText(this@MainActivity, isOpen.toString(), Toast.LENGTH_SHORT).show()
@@ -25,6 +35,27 @@ class MainActivity : AppCompatActivity() {
         mGetStateBtn.setOnClickListener {
             Toast.makeText(this, easySwitcher.isOpened().toString(), Toast.LENGTH_SHORT).show()
         }
+        mTrunOffSwitcherBtn.setOnClickListener {
+            easySwitcher.closeSwitcher()
+        }
+        mTrunOnSwitcherBtn.setOnClickListener {
+            easySwitcher.openSwitcher()
+        }
 
+        mChangeCloseColorBtn.setOnClickListener {
+            easySwitcher.setSwitcherCloseColor("#FFF1F1F1")
+        }
+
+        mChangeOpenColorBtn.setOnClickListener {
+            easySwitcher.setSwitcherOpenColor("#FF4CD964")
+        }
+
+        mResetOpenColorBtn.setOnClickListener {
+            easySwitcher.setSwitcherOpenColor("#FF008CFF")
+        }
+
+        mResetCloseColorBtn.setOnClickListener {
+            easySwitcher.setSwitcherCloseColor("#FFD9D9D9")
+        }
     }
 }

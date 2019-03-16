@@ -8,12 +8,7 @@
         android:id="@+id/mEasySwitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:sbAnimTime="300"
-        app:sbCloseBgColor="#d9d9d9"
-        app:sbOpenBgColor="#008cff"
-        app:sbSwitchStatus="close"
-        app:sbSwitcherColor="@android:color/white" />
+        android:layout_centerInParent="true" />
 
     <Button
         android:id="@+id/mGetStateBtn"
@@ -23,4 +18,63 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="get_state" />
+
+    <Button
+        android:id="@+id/mTrunOnSwitcherBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/mGetStateBtn"
+        android:layout_toLeftOf="@id/mGetStateBtn"
+        android:text="open" />
+
+    <Button
+        android:id="@+id/mTrunOffSwitcherBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/mGetStateBtn"
+        android:layout_toRightOf="@id/mGetStateBtn"
+        android:text="close" />
+
+    <LinearLayout
+        android:id="@+id/mChangeColorLl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mTrunOnSwitcherBtn"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/mChangeOpenColorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHANGE_OPEN_COLOR" />
+
+        <Button
+            android:id="@+id/mChangeCloseColorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHANGE_CLOSE_COLOR" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mResetColorLl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mChangeColorLl"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mResetOpenColorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RESET_OPEN_COLOR" />
+
+        <Button
+            android:id="@+id/mResetCloseColorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RESET_CLOSE_COLOR" />
+    </LinearLayout>
 </RelativeLayout>
