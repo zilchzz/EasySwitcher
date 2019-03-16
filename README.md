@@ -10,7 +10,7 @@ Switcher library for Android platform ,write in Kotlin. It's easy to use, with b
 - [中文](https://github.com/zilchzz/EasySwitcher/blob/master/README_CH.md)
 
 # UI
-![image](https://github.com/zilchzz/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/git_effect.gif)
+![image](https://github.com/zilchzz/EasySwitcher/blob/master/sample/src/main/res/mipmap-xxhdpi/switcher.gif)
 
 ## Requirements
 
@@ -33,7 +33,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.zilchzz:EasySwitcher:0.1.4'
+    implementation 'com.github.zilchzz:EasySwitcher:0.1.5'
 }
 ```
 
@@ -52,6 +52,9 @@ Add `EasySwitcher` to your xml layout
         app:sbSwitchStatus="close"
         app:sbSwitcherColor="@android:color/white" />
 ```
+
+>**If you want to change the default background color or animation time , you can change it in Application with EasySwitcher.setDefault...(). And default attr will be ignored , if you set the attr in xml.**
+
 
 ## Available attributes
 
@@ -99,9 +102,38 @@ fun isOpened() = mSwitcherOpened
 fun setOnStateChangedListener(stateChangedLis: SwitchStateChangedListener) {
 	this.mStateChangedLis = stateChangedLis
 }
+
+/**
+ * change default animation time
+ */
+fun setDefaultAnimTime(animTime: Int) {
+	if (animTime < 0)
+                throw IllegalArgumentException("Anim time can't be less than zero")
+            mDefaultAnimTime = animTime
+        }
+}
+
+/**
+ * change default toggle color
+ */
+fun setDefaultSwitcherColor(color: String) {
+	mDefaultSwitcherToggleColor = color
+}
+
+/**
+ * change default close bg color
+ */
+fun setDefaultCloseBgColor(color: String) {
+	mDefaultCloseColor = color
+}
+
+/**
+ * change default open bg color
+ */
+fun setDefaultOpenBgColor(color: String) {
+	mDefaultOpenColor = color
+}
 ```
-
-
 
 # License
 
