@@ -56,13 +56,13 @@ dependencies {
 
 ## 可用属性
 
-|      名字        |  类型   |             Description               |
+|      名字       |  类型   |             描述              |
 | :-------------: | :-----: | :----------------------------------: |
 |  sbOpenBgColor  |  color  |     round rect color when opend      |
 | sbCloseBgColor  |  color  |     round rect color when closed     |
 |   sbAnimTime    | integer |          anim running time           |
-| sbSwitchStatus  |  enum   | switcher default state,open or close |
-| sbSwitcherColor |  color  |        the color of switcher         |
+| sbDefaultOpened  |  boolean   | toogle default state,true or false |
+| sbToggleColor |  color  |        the color of switcher         |
 
 ## 状态改变时的回调
 
@@ -138,7 +138,7 @@ fun setDefaultOpenBgColor(color: String) {
 ```
 MIT License
 
-Copyright (c) 2018 zilchzz
+Copyright (c) 2019 zilchzz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
