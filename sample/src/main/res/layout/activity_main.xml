@@ -8,6 +8,11 @@
         android:id="@+id/mEasySwitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:sbAnimTime="300"
+        app:sbCloseBgColor="#d9d9d9"
+        app:sbOpenBgColor="#008cff"
+        app:sbDefaultOpened="false"
+        app:sbToggleColor="@android:color/white"
         android:layout_centerInParent="true" />
 
     <Button

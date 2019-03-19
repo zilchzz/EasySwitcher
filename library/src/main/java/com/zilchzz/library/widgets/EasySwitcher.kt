@@ -70,6 +70,7 @@ class EasySwitcher @JvmOverloads constructor(
     private var mTotalAnimator: ObjectAnimator? = null
     private var mBackGroundRectF: RectF = RectF() //the RectF for draw round rect
     private var mStateChangedLis: SwitchStateChangedListener? = null
+    private var mSwitcherStatusHandler: SwitcherStatusHandler? = null
 
     init {
         val typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.EasySwitcher)
@@ -192,6 +193,10 @@ class EasySwitcher @JvmOverloads constructor(
         invalidate()
     }
 
+    fun setSwitcherStatusHandler(switcherStatusHandler: SwitcherStatusHandler) {
+        mSwitcherStatusHandler = switcherStatusHandler
+    }
+
     private fun setBgColor(color: Int) {
         mCurrBgColor = color
         invalidate()
@@ -214,6 +219,12 @@ class EasySwitcher @JvmOverloads constructor(
         if (mTotalAnimator?.isRunning == true) {
             return
         }
+
+        if ((isOpened() && mSwitcherStatusHandler?.abortClose() == true) //about to close but aborted
+                || (!isOpened() && mSwitcherStatusHandler?.abortOpen() == true)) { //about to open but aborted
+            return
+        }
+
         mArgbVh = null
         mTranslationVh = null
         if (mSwitcherOpened) {
@@ -262,6 +273,22 @@ class EasySwitcher @JvmOverloads constructor(
         this.mStateChangedLis = stateChangedLis
     }
 
+    /**
+     * when the switcher status is about to change , you can abort it with this
+     */
+    interface SwitcherStatusHandler {
+        /**
+         * abort open
+         * @return true to abort,false to continue
+         */
+        fun abortOpen(): Boolean
+
+        /**
+         * abort close
+         * @return true to abort,false to continue
+         */
+        fun abortClose(): Boolean
+    }
 
     interface SwitchStateChangedListener {
         /**
