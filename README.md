@@ -33,7 +33,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.zilchzz:EasySwitcher:0.1.6'
+    implementation 'com.github.zilchzz:EasySwitcher:0.1.7'
 }
 ```
 
