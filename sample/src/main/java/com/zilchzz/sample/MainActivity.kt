@@ -32,6 +32,21 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, isOpen.toString(), Toast.LENGTH_SHORT).show()
             }
         })
+        easySwitcher.setSwitcherStatusHandler(object : EasySwitcher.SwitcherStatusHandler {
+            override fun abortOpen(): Boolean {
+                /**
+                 * conditions
+                 */
+                return false
+            }
+
+            override fun abortClose(): Boolean {
+                /**
+                 * conditions
+                 */
+                return false
+            }
+        })
         mGetStateBtn.setOnClickListener {
             Toast.makeText(this, easySwitcher.isOpened().toString(), Toast.LENGTH_SHORT).show()
         }

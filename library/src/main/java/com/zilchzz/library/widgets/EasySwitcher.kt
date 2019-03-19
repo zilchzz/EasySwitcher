@@ -193,6 +193,9 @@ class EasySwitcher @JvmOverloads constructor(
         invalidate()
     }
 
+    /**
+     * set the handler to judge abort operation or not
+     */
     fun setSwitcherStatusHandler(switcherStatusHandler: SwitcherStatusHandler) {
         mSwitcherStatusHandler = switcherStatusHandler
     }
