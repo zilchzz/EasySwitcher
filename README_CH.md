@@ -81,6 +81,25 @@ mEasySwitcher.setOnStateChangedListener(object : EasySwitcher.SwitchStateChanged
 	}
 })
 ```
+## 阻止开关的状态变更
+如果在用户操作开关时需要根据某些条件（比如弹窗确认）来判断是否继续，可以使用下面的方式来处理：
+```kotlin
+easySwitcher.setSwitcherStatusHandler(object : EasySwitcher.SwitcherStatusHandler {
+    override fun abortOpen(): Boolean {
+        /**
+         * conditions
+         */
+        return false
+    }
+
+    override fun abortClose(): Boolean {
+        /**
+         * conditions
+         */
+         return false
+    }
+})
+```
 
 ## 包含方法
 
@@ -99,6 +118,14 @@ fun setOnStateChangedListener(stateChangedLis: SwitchStateChangedListener) {
 	this.mStateChangedLis = stateChangedLis
 }
 
+/**
+ * set the handler to judge abort operation or not
+ */
+fun setSwitcherStatusHandler(switcherStatusHandler: SwitcherStatusHandler) {
+	mSwitcherStatusHandler = switcherStatusHandler
+}
+
+// funcs below was in the companion
 /**
  * change default animation time
  */
