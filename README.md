@@ -83,6 +83,26 @@ mEasySwitcher.setOnStateChangedListener(object : EasySwitcher.SwitchStateChanged
 	}
 })
 ```
+## Abort operation
+
+If you want to abort opeartion when switcher status is about to change:
+```kotlin
+easySwitcher.setSwitcherStatusHandler(object : EasySwitcher.SwitcherStatusHandler {
+	override fun abortOpen(): Boolean {
+		/**
+                 * conditions
+                 */
+                return false
+            }
+
+            override fun abortClose(): Boolean {
+                /**
+                 * conditions
+                 */
+                return false
+	}
+})
+```
 
 ## Direction
 
