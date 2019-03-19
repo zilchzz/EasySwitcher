@@ -182,6 +182,7 @@ class EasySwitcher @JvmOverloads constructor(
         mCurrBgColor = mOpenBgColor
         initialize()
         invalidate()
+        mStateChangedLis?.onStateChanged(true)
     }
 
     fun closeSwitcher() {
@@ -191,6 +192,7 @@ class EasySwitcher @JvmOverloads constructor(
         mCurrBgColor = mCloseBgColor
         initialize()
         invalidate()
+        mStateChangedLis?.onStateChanged(false)
     }
 
     /**
