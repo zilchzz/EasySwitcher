@@ -124,6 +124,14 @@ fun setOnStateChangedListener(stateChangedLis: SwitchStateChangedListener) {
 }
 
 /**
+ * set the handler to judge abort operation or not
+ */
+fun setSwitcherStatusHandler(switcherStatusHandler: SwitcherStatusHandler) {
+	mSwitcherStatusHandler = switcherStatusHandler
+}
+
+// funcs below was in the companion
+/**
  * change default animation time
  */
 fun setDefaultAnimTime(animTime: Int) {
@@ -154,6 +162,7 @@ fun setDefaultOpenBgColor(color: String) {
 	mDefaultOpenColor = color
 }
 ```
+
 
 # License
 
